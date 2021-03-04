@@ -56,14 +56,14 @@ namespace JmbpPrintAPI
             {
                 options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                 {
-                    //ValidateIssuer = true,
-                    //ValidateAudience = true,
-                    //ValidAudience = "http://ahmedmozaffor.net"
-                    //ValidIssuer= "http://ahmedmozaffor.net",
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["AuthSettings:Audience"],
+                    ValidIssuer= Configuration["AuthSettings:Issuer"],
+                    //ValidateIssuer = false,
+                    //ValidateAudience = false,
                     RequireExpirationTime = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is the key we will use in encryption")),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["AuthSettings:Key"])),
                     ValidateIssuerSigningKey=true
                 };
             });
@@ -90,6 +90,8 @@ namespace JmbpPrintAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
