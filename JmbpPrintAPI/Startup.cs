@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JmbpPrintAPI.Models;
+using JmbpPrintAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -67,6 +68,8 @@ namespace JmbpPrintAPI
                 };
             });
 
+            services.AddScoped<IUserService, UserService>();
+
             services.AddControllers();
         }
 
@@ -77,6 +80,12 @@ namespace JmbpPrintAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => {
+                builder.AllowAnyOrigin();
+                builder.AllowAnyMethod();
+                builder.AllowAnyHeader();
+            });
 
             app.UseHttpsRedirection();
 
