@@ -23,7 +23,10 @@ function HeaderPage() {
         activeStyle={activeStyle}
         to="/register"
       >
-        Register
+        {"  "} Register
+      </NavLink>
+      <NavLink style={{ float: "right" }} activeStyle={activeStyle} to="/login">
+        Login {" | "}
       </NavLink>
     </nav>
   );
