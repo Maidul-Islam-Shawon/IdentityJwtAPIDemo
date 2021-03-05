@@ -17,9 +17,11 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
     "react-toastify": "^4.5.2",
+    "react-validation": "^3.0.7",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "validator": "^13.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
