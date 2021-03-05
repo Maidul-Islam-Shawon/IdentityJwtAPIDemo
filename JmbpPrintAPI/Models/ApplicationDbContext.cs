@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using IdentityJwtAPIDemo.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,6 @@ namespace JmbpPrintAPI.Models
         }
 
         public DbSet<Employee> Employees { get; set; }
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
