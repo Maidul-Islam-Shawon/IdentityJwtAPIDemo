@@ -106,6 +106,7 @@ export default class RegisterComponent extends Component {
 
     this.form.validateAll();
 
+    //debugger;
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.register(
         this.state.Email,

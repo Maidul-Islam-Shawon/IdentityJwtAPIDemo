@@ -5,7 +5,9 @@ const API_URL = "https://localhost:44393/api/auth/";
 class AuthService {
   login(Email, Password) {
     return axios.post(API_URL + "login", { Email, Password }).then((res) => {
-      if (res.data.isSuccess) {
+      console.log("Login Response: ", res.data);
+      // console.log("isSuccess", res.data.userDetails);
+      if (res.data.userManagerResponse.isSuccess) {
         localStorage.setItem("user", JSON.stringify(res.data));
       }
 

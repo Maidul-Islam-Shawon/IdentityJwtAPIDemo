@@ -38,7 +38,7 @@ export default class LoginComponent extends Component {
 
   onChangePassword(e) {
     this.setState({
-      pasPasswordsword: e.target.value,
+      Password: e.target.value,
     });
   }
 
@@ -53,7 +53,7 @@ export default class LoginComponent extends Component {
     this.form.validateAll();
 
     if (this.checkBtn.context._errors.length === 0) {
-      AuthService.login(this.state.username, this.state.password).then(
+      AuthService.login(this.state.Email, this.state.Password).then(
         () => {
           this.props.history.push("/home");
           window.location.reload();
